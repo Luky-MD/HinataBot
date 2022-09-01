@@ -3,9 +3,12 @@ import fs from 'fs'
 import fetch from 'node-fetch'
 import moment from 'moment-timezone'
 import knights from 'knights-canvas'
-export async function all(m) {
-	let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+let handler = m => m
+handler.all = async function (m) {
+	let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? this.user.jid : m.sender
 	let name = await this.getName(who)
+	let a = ["AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BOV","BRL","BSD","BTN","BWP","BYR","BZD","CAD","CDF","CHE","CHF","CHW","CLF","CLP","CNY","COP","COU","CRC","CUC","CUP","CVE","CZK","DJF","DKK","DOP","DZD","EGP","ERN","ETB","EUR","FJD","FKP","GBP","GEL","GHS","GIP","GMD","GNF","GTQ","GYD","HKD","HNL","HRK","HTG","HUF","IDR","ILS","INR","IQD","IRR","ISK","JMD","JOD","JPY","KES","KGS","KHR","KMF","KPW","KRW","KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LTL","LVL","LYD","MAD","MDL","MGA","MKD","MMK","MNT","MOP","MRO","MUR","MVR","MWK","MXN","MXV","MYR","MZN","NAD","NGN","NIO","NOK","NPR","NZD","OMR","PAB","PEN","PGK","PHP","PKR","PLN","PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG","SEK","SGD","SHP","SLL","SOS","SRD","SSP","STD","SYP","SZL","THB","TJS","TMT","TND","TOP","TRY","TTD","TWD","TZS","UAH","UGX","USD","USN","USS","UYI","UYU","UZS","VEF","VND","VUV","WST","XAF","XAG","XAU","XBA","XBB","XBC","XBD","XCD","XDR","XFU","XOF","XPD","XPF","XPT","XTS","XXX","YER","ZAR","ZMW"]
+    let b = a[Math.floor(Math.random() * a.length)]
 	let pp
 	try {
 		pp = await this.profilePictureUrl(m.sender, 'image')
@@ -68,7 +71,7 @@ export async function all(m) {
 				},
 				"message": {
 					"requestPaymentMessage": {
-						"currencyCodeIso4217": "USD",
+						"currencyCodeIso4217": b,
 						"amount1000": fsizedoc,
 						"requestFrom": "0@s.whatsapp.net",
 						"noteMessage": {
@@ -80,7 +83,7 @@ export async function all(m) {
 						"amount": {
 							"value": fsizedoc,
 							"offset": fsizedoc,
-							"currencyCode": "USD"
+							"currencyCode": b
 						}
 					}
 				}
@@ -108,9 +111,7 @@ export async function all(m) {
 			message: {
 				'contactMessage': {
 					'displayName': wm,
-					'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${wm},
-		;;;\nFN:${wm},
-		\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabell:Ponsel\nEND:VCARD`,
+					'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${wm},;;;\nFN:${wm},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabell:Ponsel\nEND:VCARD`,
 					'jpegThumbnail': fs.readFileSync('./thumbnail.jpg'),
 					thumbnail: fs.readFileSync('./thumbnail.jpg'),
 					sendEphemeral: true
@@ -291,6 +292,7 @@ export async function all(m) {
 		global.knimg = kn.getRandom()
 	}
 }
+export default handler 
 
 function ucapan() {
 	const time = moment.tz('Asia/Jakarta').format('HH')

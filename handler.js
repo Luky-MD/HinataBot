@@ -931,6 +931,7 @@ export async function handler(chatUpdate) {
                 if (!('jadibot' in settings)) settings.jadibot = false
                 if (!('autorestart' in settings)) settings.autorestart = true
                 if (!('restartDB' in settings)) settings.restartDB = 0
+                if (!('status' in settings)) settings.status = 0
              
             } else global.db.data.settings[this.user.jid] = {
                 self: false,
@@ -938,7 +939,8 @@ export async function handler(chatUpdate) {
                 jadibot: false,
                 restrict: true,
                 autorestart: true,
-                restartDB: 0
+                restartDB: 0,
+                status: 0
             }
         } catch (e) {
             console.error(e)
@@ -1288,11 +1290,52 @@ export async function participantsUpdate({ id, participants, action }) {
   let resmoji = JSON.parse(readFileSync('./json/emoji.json'))
   let emojis = resmoji.emoji
   let mim_ = ["application/vnd.openxmlformats-officedocument.presentationml.presentation","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application/vnd.openxmlformats-officedocument.wordprocessingml.document","application/vnd.ms-excel","application/msword","application/pdf","text/rtf"]
-  let lin_ = ["https://www.youtube.com","https://www.instagram.com","https://www.facebook.com"]
+  let lin_ = ["https://www.youtube.com","https://www.tiktok.com","https://www.instagram.com","https://www.facebook.com"]
   let wmwel = `\n\n📮 *Welcome:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner`
   let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner`
   
-      await conn.sendButton(id, text, action == 'add' ? wmwel : wmlea, Buffer.alloc(0), [[action == 'add' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'add' ? 'tes' : 'Huuu'], [action == 'add' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'add' ? '/menulist' : 'Huuu']], null, { quoted: fpayment, mimetype: mim_.getRandom(), fileName: ucapan, pageCount: fpagedoc, fileLength: fsizedoc, seconds: fsizedoc, jpegThumbnail: await( await fetch(ppgc)).buffer(), contextInfo: {
+      let pusat = ["ke1", "ke2", "ke3", "ke4", "ke5"]
+    let pilih = pusat.getRandom()
+    if (pilih == "ke1") {
+    let btn = [{
+                                urlButton: {
+                                    displayText: 'Source Code',
+                                    url: sgh
+                                }
+                            }, {
+                                callButton: {
+                                    displayText: 'Number Phone Owner',
+                                    phoneNumber: nomorown
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: em.getRandom() + ' All Menu',
+                                    id: '/allmenu'
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: em.getRandom() + ' List Menu',
+                                    id: '/menulist'
+                                }  
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Script',
+                                    id: '.sc'
+                                }
+                            }]
+        await conn.sendButtonGif(id, text, action == 'add' ? wmwel : wmlea, { url: global.giflogo }, btn, knimg)
+        }
+        if (pilih == "ke2") {
+        await conn.send2ButtonDoc(id, text, action == 'add' ? wmwel : wmlea, action == 'add' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'add' ? 'tes' : 'Huuu', action == 'add' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'add' ? '/menulist' : 'Huuu', fpayment, adReply)
+        }
+        if (pilih == "ke3") {
+        await conn.send2ButtonLoc(id, knimg, text, action == 'add' ? wmwel : wmlea, action == 'add' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'add' ? 'tes' : 'Huuu', action == 'add' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'add' ? '/menulist' : 'Huuu', fpayment, adReply)
+        }
+        if (pilih == "ke4") {
+        await conn.sendTemplateButtonLoc(id, knimg, text, action == 'add' ? wmwel : wmlea, action == 'add' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'add' ? '/menulist' : 'Huuu', fpayment, adReply)
+        }
+        if (pilih == "ke5") {
+        await conn.sendButton(id, text, action == 'add' ? wmwel : wmlea, Buffer.alloc(0), [[action == 'add' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'add' ? 'tes' : 'Huuu'], [action == 'add' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'add' ? '/menulist' : 'Huuu']], null, { quoted: fakes, mimetype: mim_.getRandom(), fileName: ucapan, pageCount: fpagedoc, fileLength: fsizedoc, seconds: fsizedoc, jpegThumbnail: await( await fetch(ppgc)).buffer(), contextInfo: {
     mentionedJid: [user],
           externalAdReply :{
           showAdAttribution: true,
@@ -1305,6 +1348,7 @@ export async function participantsUpdate({ id, participants, action }) {
     sourceUrl: sgc
      }}
   })
+  }
                     }
                 }
             }
@@ -1314,7 +1358,7 @@ export async function participantsUpdate({ id, participants, action }) {
             case 'demote':
                 if (!text) text = (chat.sDemote || this.sdemote || conn.sdemote || '@user ```is no longer Admin```')
                 text = text.replace('@user', '@' + participants[0].split('@')[0])
-                if (chat.detect) this.send2ButtonDoc(id, text, author, '🔖 Matikan Fitur', '.off detect', 'ℹ️ Menu', '.menu', null, adReply)
+                if (chat.detect) this.send2ButtonDoc(id, text, author, '🔖 Matikan Fitur', '.off detect', 'ℹ️ Menu', '.menu', fpayment, adReply)
                 break
         
     }
@@ -1341,7 +1385,7 @@ export async function groupsUpdate(groupsUpdate) {
             if (groupUpdate.restrict == true) text = (chats.sRestrictOn || this.sRestrictOn || conn.sRestrictOn || '*Group has been all participants!*')
             if (groupUpdate.restrict == false) text = (chats.sRestrictOff || this.sRestrictOff || conn.sRestrictOff || '*Group has been only admin!*')
             if (!text) continue
-            this.send2ButtonDoc(id, text.trim(), author, '🔖 Matikan Fitur', '.off detect', 'ℹ️ Menu', '.menu', fpayment, adReply)
+            this.send2ButtonDoc(id, text.trim(), author, '🔖 Matikan Fitur', '.off detect', 'ℹ️ Menu', '.menu', fakes, adReply)
     }
 }
 
@@ -1402,7 +1446,7 @@ ${nmsr} RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan
         restrict: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
 ${nmsr} Fitur ini di *disable* !`
     }[type]
-    if (msg) return conn.send2ButtonDoc(m.chat, msg, author, '🔖 Ok', 'Huuu', 'ℹ️ Menu', '.menu', null, adReply)
+    if (msg) return conn.send2ButtonDoc(m.chat, msg, author, '🔖 Ok', 'Huuu', 'ℹ️ Menu', '.menu', fpayment, adReply)
 }
 
 let file = global.__filename(import.meta.url, true)

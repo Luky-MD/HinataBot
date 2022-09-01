@@ -16,7 +16,8 @@ let handler = async (m, { conn, args }) => {
 	}
     }
 handler.help = ['setbotpp']
-handler.command = /^(setbotpp)$/i
+handler.command = /^(set(bot)?pp)$/i
+
 handler.owner = true
 
 export default handler

@@ -51,40 +51,14 @@ let jp0 = await js0.json()
 let x0 = jp0.result
 await conn.sendButton(m.chat, caption, wm, x0, [
       ['Pinterest', usedPrefix + command + ' ' + one]
-    ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            jpegThumbnail: Buffer.alloc(0), contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+    ], fakes)
     break
 
 case 'pinterest1':
 let js1 = `https://leyscoders-api.herokuapp.com/api/pinsearch?q=${one}&apikey=MIMINGANZ`
 await conn.sendButton(m.chat, caption, wm, js1, [
       ['Pinterest', usedPrefix + command + ' ' + one]
-    ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            jpegThumbnail: Buffer.alloc(0), contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+    ], fakes)
     break
     
 case 'pinterest2':
@@ -93,20 +67,7 @@ let jp2 = await js2.json()
 let x2 = jp2.result
 await conn.sendButton(m.chat, caption, wm, x2.getRandom(), [
       ['Pinterest', usedPrefix + command + ' ' + one]
-    ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            jpegThumbnail: Buffer.alloc(0), contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+    ], fakes)
     break
 
 case 'pinterest3':
@@ -115,20 +76,7 @@ let jp3 = await js3.json()
 let x3 = jp3.result
 await conn.sendButton(m.chat, caption, wm, x3.getRandom(), [
       ['Pinterest', usedPrefix + command + ' ' + one]
-    ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            jpegThumbnail: Buffer.alloc(0), contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+    ], fakes)
     break
 
 case 'pinterest4':
@@ -137,20 +85,7 @@ let jp4 = await js4.json()
 let x4 = jp4.result
 await conn.sendButton(m.chat, caption, wm, x4.getRandom(), [
       ['Pinterest', usedPrefix + command + ' ' + one]
-    ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            jpegThumbnail: Buffer.alloc(0), contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+    ], fakes)
     break
 
 case 'pinterest5':
@@ -159,40 +94,14 @@ let jp5 = await js5.json()
 let x5 = jp5.data
 await conn.sendButton(m.chat, caption, wm, x5.getRandom(), [
       ['Pinterest', usedPrefix + command + ' ' + one]
-    ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            jpegThumbnail: Buffer.alloc(0), contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+    ], fakes)
     break
 
 case 'pinterest6':
 let js6 = await pinterest(text)
   await conn.sendButton(m.chat, caption.trim(), wm, j6.getRandom(), [
       ['Pinterest', usedPrefix + command + ' ' + one]
-    ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            jpegThumbnail: Buffer.alloc(0), contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+    ], fakes)
 break
 
 case 'pinterest7':
@@ -201,20 +110,7 @@ let jp7 = await js7.json()
 let x7 = jp7.result
 await conn.sendButton(m.chat, caption, wm, x7.getRandom(), [
       ['Pinterest', usedPrefix + command + ' ' + one]
-    ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            jpegThumbnail: Buffer.alloc(0), contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+    ], fakes)
     break
 
 case 'pinterest8':
@@ -223,20 +119,7 @@ let jp8 = await js8.json()
 let x8 = jp8.result
 await conn.sendButton(m.chat, caption, wm, x8.getRandom(), [
       ['Pinterest', usedPrefix + command + ' ' + one]
-    ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            jpegThumbnail: Buffer.alloc(0), contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+    ], fakes)
     break
 
 case 'pinterest9':
@@ -245,20 +128,7 @@ let jp9 = await js9.json()
 let x9 = jp9.result
 await conn.sendButton(m.chat, caption, wm, x9.getRandom(), [
       ['Pinterest', usedPrefix + command + ' ' + one]
-    ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            jpegThumbnail: Buffer.alloc(0), contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+    ], fakes)
 break
 
 case 'pinterest10':
@@ -267,20 +137,7 @@ let jp10 = js10.data
 let x10 = jp10.result
 await conn.sendButton(m.chat, caption, wm, x10, [
       ['Pinterest', usedPrefix + command + ' ' + one]
-    ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            jpegThumbnail: Buffer.alloc(0), contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+    ], fakes)
 break
 
 

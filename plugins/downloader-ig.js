@@ -70,7 +70,7 @@ let dapet = json.result.url
 }
 handler.help = ['instagram'].map(v => v + ' <url>')
 handler.tags = ['downloader']
-handler.command = /^^i(nsta(gramd(own(load(er)?)?|l)|d(own(load(er)?)?|l))|g(d(own(load(er)?)?|l))?)$/i
+handler.command = /^i(nsta(gramd(own(load(er)?)?|l)|d(own(load(er)?)?|l))|g(d(own(load(er)?)?|l))?)$/i
 handler.limit = true
 
 export default handler

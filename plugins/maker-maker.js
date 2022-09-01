@@ -968,7 +968,7 @@ let row = Object.keys(lis).map((v, index) => ({
 	return await conn.sendListM(m.chat, button, row, m)
 	}
 }
-handler.help = ['maker'].map(v => v + ' <teks>')
+handler.help = ['maker 1-14']
 handler.tags = ['maker']
 handler.command = /^maker(1[0-4]|1|[2-9])$/i
 export default handler

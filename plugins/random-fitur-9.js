@@ -100,20 +100,49 @@ if (command == 'drinks') {
 }
 
 if (command == 'rules') {
-let caption = `${htki} *RULES BOT* ${htka}
-│
-┊ DILARANG TOXIC
-┊ DILARANG SPAM
-┊ DILARANG KIRIM VIRTEX
-┊ DILARANG KIRIM 18+ APAPUN ITU
-┊ DILARANG TELPON / VC
-┊ DILARANG CULIK BOT
-┊ DILARANG PROMOSI
-┊ BOT TIDAK MENERIMA SAVE KONTAK
-┊ KALO MELANGGAR AKAN LANGSUNG DIBAN DAN DI BLOKIR TANPA TOLERANSI SEDIKIT PUN
-┊
-│⌕ ❙❘❙❙❘❙❚❙❘❙❙❚❙❘❙❘❙❚❙❘❙❙❚❙❘❙❙❘❙❚❙❘ 
-${htki} *HINATA MD* ${htka}`
+let caption = `${htki} *RULES* ${htka}
+
+_Kebijakan privasi atau Private without being in public_
+
+
+
+• *Kebijakan Privasi:*
+1. WhatsApp Bot tidak akan merekam data riwayat chat user.
+2. WhatsApp Bot tidak akan menyebarkan nomor users.
+3. WhatsApp Bot tidak akan menyimpan media yang dikirimkan oleh users.
+4. WhatsApp Bot tidak akan menyalah gunakan data data users.
+5. Owner WhatsApp Bot berhak melihat data riwayat chat users.
+6. Owner WhatsApp Bot berhak melihat status users.
+7. Owner WhatsApp Bot dapat melihat riwayat chat, dan media yang dikirimkan users.
+
+• Jika ada bug/eror di website kami saya mohon untuk Report nya, tanpa biaya dan aman
+
+_Cara penggunaan ${namebot} Agar terhindar dari Suspand_
+
+• *Peraturan WhatsApp Bot:*
+1. Users dilarang menelpon maupun memvideo call nomor bot.
+2. Users dilarang mengirimkan berbagai bug, virtex, dll ke nomor bot.
+3. Users diharap tidak melakukan spam dalam penggunaan bot.
+4. Users dilarang menambahkan nomor bot secara illegal, untuk menambahkan silahkan hubungi Owner.
+5. Users diharap untuk tidak menyalah gunakan fitur fitur bot.
+
+• *Note:*
+1. Jika ada yang menjual/beli/sewa bot atas nomor ini, harap segera hubungi owner!
+2. Jika ingin donasi bisa langsung aja ya social payment Dana 
+3. Ketik .sewa Jika Ingin SewaBot 
+
+•Agar terhindar dari Suspand/Ban kalian bisa membaca juga di Peraturan kami.
+
+•Perlu kalian tahu bahwa kami menjaga Privasi dari data-data anda!
+
+• *Syarat Ketentuan WhatsApp Bot:*
+
+1. WhatsApp Bot akan keluar dari group jika ada salah satu member melanggar peraturan.
+2. WhatsApp Bot dapan mem-ban users secara sepihak terlepas dari users salah atau tidak.
+3. WhatsApp Bot tidak akan bertanggungjawab atas apapun yang users lakukan terhadap fitur bot.
+4. WhatsApp Bot akan memberlakukan hukuman: block atau ban terhadap users yang melanggar peraturan.
+5. WhatsApp Bot bertanggung jawab atas kesalahan fatal dalam programing maupun owner.
+`
 await conn.sendButton(m.chat, caption, wm, `${imgr + command}`, [
                 ['Ok!', `${usedPrefix}tts id Oke`]
             ], m, fdoc)

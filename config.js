@@ -49,8 +49,8 @@ global.APIs = {
 
 /*Apikey*/
 global.APIKeys = {
- 'https://api.neoxr.my.id' : 'JeJU827J',
- 'https://api.lolhuman.xyz' : 'bukanitucuy14315195',
+ 'https://api.neoxr.my.id' : '5VC9rvNx',
+ 'https://api.lolhuman.xyz' : '85faf717d0545d14074659ad',
  'https://api.xteam.xyz' : 'NezukoTachibana281207',
  'https://api.zeks.xyz' : 'apivinz',
  'https://hardianto-chan.herokuapp.com' : 'hardianto',
@@ -66,15 +66,21 @@ global.APIKeys = {
 }
 
 /*Lolhuman*/
-global.lolkey = 'bukanitucuy14315195'
+global.lolkey = '85faf717d0545d14074659ad'
 /*Xteam*/
 global.xteamkey = 'NezukoTachibana281207'
 /*Xcoders*/
 global.xckey = 'BOhjM2hUVn'
 
-/*List Lolkey
+/*List Key
+-Lolhuman-
 '327a6596e4c4baa20c756132'
 'bukanitucuy14315195'
+'85faf717d0545d14074659ad'
+'ed78c137a46873c5b8e5fe3b'
+
+-Neoxr-
+'5VC9rvNx'
 */
 
 /*Number*/
@@ -428,7 +434,7 @@ global.htjava = '⫹⫺'
 
 /*Watermark*/
 global.stickpack = '.'
-global.stickauth = `☂︎ ʜɪɴᴀᴛᴀ-ʙᴏᴛ\n⫹⫺ 𝐖𝐡𝐚𝐭𝐬𝐚𝐩𝐩\nwa.me/${global.nomorbot}`
+global.stickauth = `☂︎ 𝗛𝗶𝗻𝗮𝘁𝗮 乂 𝘄𝘂𝗱𝘆𝘀𝗼𝗳𝘁\n⫹⫺ 𝐖𝐡𝐚𝐭𝐬𝐚𝐩𝐩\nwa.me/${global.nomorbot}`
 global.packname = '☂︎ ᴄʀᴇᴀᴛᴇᴅ ʙʏ'
 global.author = '𝗛𝗶𝗻𝗮𝘁𝗮 乂 𝘄𝘂𝗱𝘆𝘀𝗼𝗳𝘁'
 global.multiplier = 10

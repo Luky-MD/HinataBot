@@ -70,12 +70,92 @@ let handler = async (m, { text, args, usedPrefix, command }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let pp = await conn.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
 let name = await conn.getName(who)
-if (!args[0]) throw 'Masukkan paramenter scraper'
-let blum = 'Blum ada'
+
+if (!args[0]) {
+let hasil = ['android1',
+'anime',
+'anoboydl',
+'anoboys',
+'apkmirror',
+'apkmody',
+'artinama',
+'asupanfilm',
+'asupanfilminfo',
+'bacaresep',
+'carigc',
+'cariresep',
+'chara',
+'corona',
+'devianart',
+'dewabatch',
+'drakor',
+'facebook',
+'film',
+'gempa',
+'ghfollower',
+'ghfollowing',
+'ghuser',
+'goredl',
+'happymod',
+'happymoddl',
+'igdl',
+'igdl2',
+'igstalk',
+'igstory',
+'job',
+'joox',
+'kiryu',
+'konachan',
+'manga',
+'mangatoon',
+'mediafire',
+'merdekanews',
+'metronews',
+'palingmurah',
+'pin',
+'pinterest2',
+'quotes',
+'randomgore',
+'randomtt',
+'rexdl',
+'rexdldown',
+'searchgore',
+'sfiledown',
+'sfilesearch',
+'soundcloud',
+'stickersearch',
+'textmakervid',
+'tiktok',
+'trendtwit',
+'twitter',
+'wallpapercave',
+'wallpapercraft',
+'wallpaperhd',
+'wattpad',
+'webtoons',
+'wikisearch',
+'zerochan',
+'zippydl']
+
+	let row = Object.keys(hasil).map((v, index) => ({
+		title: 'Scraper ' + hasil[v],
+		description: '\nNo. ' + index,
+		rowId: usedPrefix + 'scrap ' + hasil[v]
+	}))
+	let button = {
+		buttonText: `☂️ Scraper Disini ☂️`,
+		description: `⚡ Silakan pilih Scraper di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
+		footerText: wm
+	}
+	return await conn.sendListM(m.chat, button, row, m)
+	}
+let blum = 'Fitur Ini Belum ditambahkan'
+let kueri =  'Masukkan Query\nEx. ' + usedPrefix + command + ' carigc wibu'
 if (args[0] == 'android1') {
 throw blum
 }
 if (args[0] == 'anime') {
+if (!args[1]) throw kueri
 let teks = await sanime(args[1])
 	let row = Object.values(teks.result).map((v, index) => ({
 		title: index + ' ' + v.judul,
@@ -90,6 +170,7 @@ let teks = await sanime(args[1])
 	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'anoboydl') {
+if (!args[1]) throw kueri
 let teks = await sanoboydl(args[1])
 return conn.sendButton(m.chat, `*RESULT: !*
 
@@ -113,6 +194,7 @@ return conn.sendButton(m.chat, `*RESULT: !*
             ], m)
 }
 if (args[0] == 'anoboys') {
+if (!args[1]) throw kueri
 let teks = await sanoboys(args[1])
 	let row = Object.values(teks.data).map((v, index) => ({
 		title: index + ' ' + v.judul,
@@ -127,6 +209,7 @@ let teks = await sanoboys(args[1])
 	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'apkmirror') {
+if (!args[1]) throw kueri
 let teks = await sapkmirror(args[1])
 	let row = Object.values(teks.data).map((v, index) => ({
 		title: index + ' ' + v.judul,
@@ -141,6 +224,7 @@ let teks = await sapkmirror(args[1])
 	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'apkmody') {
+if (!args[1]) throw kueri
 let teks = await sapkmody(args[1])
 	let row = Object.values(teks.data).map((v, index) => ({
 		title: index + ' ' + v.judul,
@@ -155,18 +239,23 @@ let teks = await sapkmody(args[1])
 	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'artinama') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'asupanfilm') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'asupanfilminfo') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'bacaresep') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'carigc') {
+if (!args[1]) throw kueri
 let teks = await scarigc(args[1])
 	let row = Object.values(teks).map((v, index) => ({
 		title: index + ' *' + v.nama,
@@ -181,42 +270,54 @@ let teks = await scarigc(args[1])
 	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'cariresep') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'chara') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'corona') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'devianart') {
+if (!args[1]) throw kueri
 let teks = await sdevianart(args[1])
 return conn.sendButton(m.chat, `*Result: !*`, author, teks.result, [
                 ['Next', usedPrefix + command + ' ' + args[0] + ' ' + args[1]],
             ], m)
 }
 if (args[0] == 'dewabatch') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'drakor') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'facebook') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'film') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'gempa') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'ghfollower') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'ghfollowing') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'ghuser') {
+if (!args[1]) throw kueri
 let teks = await sghuser(args[1])
 let row = Object.values(teks).map((v, index) => ({
 		title: index + ' ' + teks.name,
@@ -231,9 +332,11 @@ let row = Object.values(teks).map((v, index) => ({
 	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'goredl') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'happymod') {
+if (!args[1]) throw kueri
 let teks = await shappymod(args[1])
 	let row = Object.values(teks.data).map((v, index) => ({
 		title: index + ' ' + v.judul,
@@ -248,24 +351,31 @@ let teks = await shappymod(args[1])
 	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'happymoddl') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'igdl') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'igdl2') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'igstalk') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'igstory') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'job') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'joox') {
+if (!args[1]) throw kueri
 let teks = await sjoox(args[1])
 	let row = Object.values(teks.data).map((v, index) => ({
 		title: index + ' ' + v.lagu,
@@ -280,21 +390,26 @@ let teks = await sjoox(args[1])
 	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'kiryu') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'konachan') {
+if (!args[1]) throw kueri
 let teks = await skonachan(args[1])
 return conn.sendButton(m.chat, `*Result: !*`, author, teks.result, [
                 ['Next', usedPrefix + command + ' ' + args[0] + ' ' + args[1]],
             ], m)
 }
 if (args[0] == 'manga') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'mangatoon') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'mediafire') {
+if (!args[1]) throw kueri
 let teks = await smediafire(args[1])
 return conn.sendButton(m.chat, `*RESULT!*
 
@@ -307,6 +422,7 @@ return conn.sendButton(m.chat, `*RESULT!*
             ], m)
 }
 if (args[0] == 'merdekanews') {
+if (!args[1]) throw kueri
 let teks = await smerdekanews()
 let row = Object.values(teks).map((v, index) => ({
 		title: index + ' ' + v.judul,
@@ -321,22 +437,28 @@ let row = Object.values(teks).map((v, index) => ({
 	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'metronews') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'palingmurah') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'pin') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'pinterest2') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'quotes') {
+if (!args[1]) throw kueri
 let teks = await squotes(args[1])
 m.reply(teks.quote)
 }
 if (args[0] == 'randomgore') {
+if (!args[1]) throw kueri
 let teks = await srandomgore(args[1])
 return conn.sendButton(m.chat, `*Result: !*
 ${teks.data.judul}
@@ -348,15 +470,19 @@ ${teks.data.thumb}
             ], m)
 }
 if (args[0] == 'randomtt') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'rexdl') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'rexdldown') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'searchgore') {
+if (!args[1]) throw kueri
 let teks = await ssearchgore(args[1])
 let row = Object.values(teks.data).map((v, index ) => ({
 		title: index + ' ' + v.judul,
@@ -371,6 +497,7 @@ let row = Object.values(teks.data).map((v, index ) => ({
 	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'sfiledown') {
+if (!args[1]) throw kueri
 let teks = await ssfiledown(args[1])
 return conn.sendButton(m.chat, `*Result: !*
 
@@ -387,6 +514,7 @@ return conn.sendButton(m.chat, `*Result: !*
             ], m)
 }
 if (args[0] == 'sfilesearch') {
+if (!args[1]) throw kueri
 let teks = await ssfilesearch(args[1])
 	let row = Object.values(teks).map((v, index ) => ({
 		title: index + ' ' + v.nama,
@@ -401,6 +529,7 @@ let teks = await ssfilesearch(args[1])
 	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'soundcloud') {
+if (!args[1]) throw kueri
 let teks = await ssoundcloud(args[1])
 return conn.sendButton(m.chat, `*Result: !*
 
@@ -412,6 +541,7 @@ return conn.sendButton(m.chat, `*Result: !*
             ], m)
 }
 if (args[0] == 'stickersearch') {
+if (!args[1]) throw kueri
 let teks = await sstickersearch(args[1])
 	let row = Object.values(teks).map(( index ) => ({
 		title: index + ' ' + teks.title,
@@ -426,6 +556,7 @@ let teks = await sstickersearch(args[1])
 	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'textmakervid') {
+if (!args[1]) throw kueri
 let teks = await stextmakervid(args[1], args[2])
 return conn.sendButton(m.chat, `*Result: !*
 ${teks.url}
@@ -437,40 +568,49 @@ List Style:
             ], m)
 }
 if (args[0] == 'tiktok') {
+if (!args[1]) throw kueri
 let teks = await stiktok(args[1])
 conn.send2ButtonVid(m.chat, teks.wm, 'Created By: ' + author, wm, 'No Wm', usedPrefix + 'get ' + teks.nowm, 'Audio', usedPrefix + 'get ' + teks.audio, m)
 }
 if (args[0] == 'trendtwit') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'twitter') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'wallpapercave') {
+if (!args[1]) throw kueri
 let teks = await swallpapercave(args[1])
 return conn.sendButton(m.chat, `*Result: !*`, author, teks.result, [
                 ['Next', usedPrefix + command + ' ' + args[0] + ' ' + args[1]],
             ], m)
 }
 if (args[0] == 'wallpapercraft') {
+if (!args[1]) throw kueri
 let teks = await swallpapercraft(args[1])
 return conn.sendButton(m.chat, `*Result: !*`, author, teks.result, [
                 ['Next', usedPrefix + command + ' ' + args[0] + ' ' + args[1]],
             ], m)
 }
 if (args[0] == 'wallpaperhd') {
+if (!args[1]) throw kueri
 let teks = await swallpaperhd(args[1])
 return conn.sendButton(m.chat, `*Result: !*`, author, teks.result, [
                 ['Next', usedPrefix + command + ' ' + args[0] + ' ' + args[1]],
             ], m)
 }
 if (args[0] == 'wattpad') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'webtoons') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'wikisearch') {
+if (!args[1]) throw kueri
 let teks = await swikisearch(args[1])
 	let row = Object.values(teks).map(( v, index ) => ({
 		title: index + ' ' + v.judul,
@@ -485,16 +625,19 @@ let teks = await swikisearch(args[1])
 	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'zerochan') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'zippydl') {
+if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'zippydl2') {
+if (!args[1]) throw kueri
 throw blum
 }
 
 }
-handler.command = ['scrap']
+handler.command = /^scr(ap(e[rs]?)?|p)$/i
 
 export default handler

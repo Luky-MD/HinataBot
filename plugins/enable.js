@@ -1,59 +1,139 @@
 import { promises, readFileSync } from 'fs'
-let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isROwner }) => {
+let handler = async (m, { conn, usedPrefix, command, args, text, isOwner, isAdmin, isROwner }) => {
 let res = JSON.parse(readFileSync('./json/emoji.json'))
 let em = res.emoji
-	const sections = [
-   {
-	title: `${htki} List Options ${htka}`,
-	rows: [
-	{title: `${htjava} Welcome ${em.getRandom()}`, rowId: `${usedPrefix + command} welcome`},
-	{title: `${htjava} Delete ${em.getRandom()}`, rowId: `${usedPrefix + command} delete`},
-	{title: `${htjava} NSFW ${em.getRandom()}`, rowId: `${usedPrefix + command} nsfw`},
-	{title: `${htjava} Public ${em.getRandom()}`, rowId: `${usedPrefix + command} public`},
-	{title: `${htjava} Bc Join ${em.getRandom()}`, rowId: `${usedPrefix + command} bcjoin`},
-	{title: `${htjava} Simi ${em.getRandom()}`, rowId: `${usedPrefix + command} simi`},
-	{title: `${htjava} Anti Spam ${em.getRandom()}`, rowId: `${usedPrefix + command} antispam`},
-	{title: `${htjava} Anti Call ${em.getRandom()}`, rowId: `${usedPrefix + command} anticall`},
-	{title: `${htjava} Anti Link Wa ${em.getRandom()}`, rowId: `${usedPrefix + command} antilinkwa`},
-	{title: `${htjava} Anti Link Tik ${em.getRandom()}`, rowId: `${usedPrefix + command} antilinktik`},
-	{title: `${htjava} Anti Link Yt ${em.getRandom()}`, rowId: `${usedPrefix + command} antilinkyt`},
-	{title: `${htjava} Anti Link Tel ${em.getRandom()}`, rowId: `${usedPrefix + command} antilinktel`},
-	{title: `${htjava} Anti Link Fb ${em.getRandom()}`, rowId: `${usedPrefix + command} antilinkfb`},
-	{title: `${htjava} Anti Link Ig ${em.getRandom()}`, rowId: `${usedPrefix + command} antilinkig`},
-	{title: `${htjava} Anti Link ${em.getRandom()}`, rowId: `${usedPrefix + command} antihatetepe`},
-	{title: `${htjava} Anti Delete ${em.getRandom()}`, rowId: `${usedPrefix + command} antidelete`},
-	{title: `${htjava} Anti Virtex ${em.getRandom()}`, rowId: `${usedPrefix + command} antivirtex`},
-	{title: `${htjava} Anti Toxic ${em.getRandom()}`, rowId: `${usedPrefix + command} antitoxic`},
-	{title: `${htjava} Anti Satir ${em.getRandom()}`, rowId: `${usedPrefix + command} antisatir`},
-	{title: `${htjava} Auto Levelup ${em.getRandom()}`, rowId: `${usedPrefix + command} autolevelup`},
-	{title: `${htjava} Auto Vn ${em.getRandom()}`, rowId: `${usedPrefix + command} autovn`},
-	{title: `${htjava} Auto DelVn ${em.getRandom()}`, rowId: `${usedPrefix + command} autodelvn`},
-	{title: `${htjava} Auto Sticker ${em.getRandom()}`, rowId: `${usedPrefix + command} autosticker`},
-	{title: `${htjava} Auto Up News ${em.getRandom()}`, rowId: `${usedPrefix + command} autoupnews`},
-	{title: `${htjava} Auto Up Anime ${em.getRandom()}`, rowId: `${usedPrefix + command} autoupnime`},
-	{title: `${htjava} Anti Sticker ${em.getRandom()}`, rowId: `${usedPrefix + command} antisticker`},
-	{title: `${htjava} Auto Join ${em.getRandom()}`, rowId: `${usedPrefix + command} autojoin`},
-	{title: `${htjava} Detect ${em.getRandom()}`, rowId: `${usedPrefix + command} detect`},
-	{title: `${htjava} Document ${em.getRandom()}`, rowId: `${usedPrefix + command} document`},
-	{title: `${htjava} White List My Contact ${em.getRandom()}`, rowId: `${usedPrefix + command} whitelistmycontact`},
-	{title: `${htjava} Restrict ${em.getRandom()}`, rowId: `${usedPrefix + command} restrick`},
-	{title: `${htjava} Nyimak ${em.getRandom()}`, rowId: `${usedPrefix + command} nyimak`},
-	{title: `${htjava} Auto Read ${em.getRandom()}`, rowId: `${usedPrefix + command} autoread`},
-	{title: `${htjava} PcOnly ${em.getRandom()}`, rowId: `${usedPrefix + command} pconly`},
-	{title: `${htjava} GcOnly ${em.getRandom()}`, rowId: `${usedPrefix + command} gconly`},
-	{title: `${htjava} SwOnly ${em.getRandom()}`, rowId: `${usedPrefix + command} swonly`},
-	]
-    },
-]
+let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+let pp = await conn.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
+let name = await conn.getName(who)
 
-const listMessage = {
-  text: ' ',
-  footer: botdate,
-  title: `*${htki} OPTIONS ${htka}*`,
-  buttonText: "Click Here!",
-  sections
-}
+	let namop = ["Anti Call",
+"Anti Delete",
+"Anti Link",
+"Anti LinkFb",
+"Anti LinkIg",
+"Anti LinkTel",
+"Anti LinkTik",
+"Anti LinkWa",
+"Anti LinkYt",
+"Anti Satir",
+"Anti Spam",
+"Anti Sticker",
+"Anti Toxic",
+"Anti Virtex",
+"Auto DelVn",
+"Auto Join",
+"Auto Levelup",
+"Auto Presence",
+"Auto Read",
+"Auto Reply",
+"Auto Sticker",
+"Auto UpAnime",
+"Auto UpNews",
+"Auto Vn",
+"BcJoin",
+"Delete",
+"Detect",
+"Document",
+"GcOnly",
+"NSFW",
+"Nyimak",
+"PcOnly",
+"Public",
+"Restrict",
+"Simi",
+"SwOnly",
+"Welcome",
+"WhiteListMyContact"]
 
+let idop = ["anticall",
+"antidelete",
+"antihatetepe",
+"antilinkfb",
+"antilinkig",
+"antilinktel",
+"antilinktik",
+"antilinkwa",
+"antilinkyt",
+"antisatir",
+"antispam",
+"antisticker",
+"antitoxic",
+"antivirtex",
+"autodelvn",
+"autojoin",
+"autolevelup",
+"autopresence",
+"autoread",
+"autoreply",
+"autosticker",
+"autoupnews",
+"autoupnime",
+"autovn",
+"bcjoin",
+"delete",
+"detect",
+"document",
+"gconly",
+"nsfw",
+"nyimak",
+"pconly",
+"public",
+"restrick",
+"simi",
+"swonly",
+"welcome",
+"whitelistmycontact"]
+
+let desop = ["Memblokir user jika menelpon bot",
+"Bot meneruskan pesan yang user hapus",
+"Jangan kirim link",
+"Jangan kirim link Fb",
+"Jangan kirim link Ig",
+"Jangan kirim link Tel",
+"Jangan kirim link Tik",
+"Jangan kirim link Wa",
+"Jangan kirim link Yt",
+"Jangan meng Satir",
+"Jangan meng Spam",
+"Jangan meng Sticker",
+"Jangan meng Toxic",
+"Jangan meng Virtex",
+"Bot Otomatis DelVn",
+"Bot Otomatis Join",
+"Bot Otomatis Levelup",
+"Bot Otomatis Presence",
+"Bot Otomatis Read",
+"Bot Otomatis Reply",
+"Bot Otomatis Sticker",
+"Bot Otomatis UpAnime",
+"Bot Otomatis UpNews",
+"Bot Otomatis Vn",
+"BcJoin",
+"Delete",
+"Detect",
+"Document",
+"GcOnly",
+"NSFW",
+"Nyimak",
+"PcOnly",
+"Public",
+"Restrict",
+"Simi",
+"SwOnly",
+"Welcome",
+"WhiteListMyContact"]
+
+let row = Object.keys(namop, desop, idop).map((v, index) => ({
+		title: `${htki} ${command} ${namop[v]} ${htka}`,
+		description: `\nNo.${1 + index}\n${htjava}${desop[v]}\n${dmenuf}`,
+		rowId: usedPrefix + command + ' ' + idop[v]
+	}))
+	let button = {
+		buttonText: `☂️ ${command} Options Disini ☂️`,
+		description: `⚡ Hai ${name}, Silakan pilih ${command} Options di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
+		footerText: wm
+	}
+	
   let isEnable = /true|enable|(turn)?on|1/i.test(command)
   let chat = global.db.data.chats[m.chat]
   let user = global.db.data.users[m.sender]
@@ -245,6 +325,20 @@ const listMessage = {
         }
       chat.autoVn = isEnable
       break
+      case 'autopresence':
+        if (!isROwner) {
+          global.dfail('rowner', m, conn)
+          throw false
+        }
+      chat.autoPesence = isEnable
+      break
+      case 'autoreply':
+        if (!isROwner) {
+          global.dfail('rowner', m, conn)
+          throw false
+        }
+      chat.autoReply = isEnable
+      break
       case 'autosticker':
         if (!isROwner) {
           global.dfail('rowner', m, conn)
@@ -386,7 +480,7 @@ const listMessage = {
       global.opts['swonly'] = isEnable
       break
     default:
-      if (!/[01]/.test(command)) return await conn.sendMessage(m.chat, listMessage, { quoted: fpayment })
+      if (!/[01]/.test(command)) return conn.sendListM(m.chat, button, row, fakes)
       throw false
   }
   

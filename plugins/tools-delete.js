@@ -1,9 +1,7 @@
-let handler = async (m, { conn, args, usedPrefix, command }) => {
+let handler = async (m, { conn, command }) => {
+if (!m.quoted) throw 'Reply pesan yang ingin dihapus'
 try {
-    let { chat, fromMe, isBaileys } = m.quoted
-    await conn.sendMessage(chat, { delete: m.quoted.vM.key })
- } catch {
- let key = {}
+let key = {}
  try {
  	key.remoteJid = m.quoted ? m.quoted.fakeObj.key.remoteJid : m.key.remoteJid
 	key.fromMe = m.quoted ? m.quoted.fakeObj.key.fromMe : m.key.fromMe
@@ -12,8 +10,10 @@ try {
  } catch (e) {
  	console.error(e)
  }
- conn.sendMessage(m.chat, { delete: key })
- }
+ return conn.sendMessage(m.chat, { delete: key })
+ } catch {
+    return conn.sendMessage(m.chat, { delete: m.quoted.vM.key })
+}
 }
 handler.help = ['del', 'delete']
 handler.tags = ['tools']
